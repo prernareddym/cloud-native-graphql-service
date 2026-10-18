@@ -14,8 +14,8 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci --omit=dev && npm cache clean --force
 COPY --from=build /app/dist ./dist
-USER node
+USER 1000
 EXPOSE 4000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s \
-  CMD wget -qO- http://127.0.0.1:4000/healthz || exit 1
+  CMD ["wget", "-qO-", "http://127.0.0.1:4000/healthz"]
 CMD ["node", "dist/index.js"]

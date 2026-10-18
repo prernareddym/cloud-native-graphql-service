@@ -44,4 +44,4 @@ jobs:
       - name: Validate Kubernetes manifests
         run: |
           curl -sSL https://github.com/yannh/kubeconform/releases/download/v0.6.7/kubeconform-linux-amd64.tar.gz | tar xz
-          ./kubeconform -strict -summary deploy/k8s
+          ./kubeconform -strict -summary -ignore-filename-pattern kustomization deploy/k8s
