@@ -1,0 +1,7 @@
+services:
+  graphql:
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      SEED_SAMPLE_DATA: "true"
